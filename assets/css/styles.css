@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #e9f1f5;
+    overflow: hidden;
+}
+
+.flashcards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 960px;
+    padding: 20px;
+    height: 100vh;
+    overflow-y: auto;
+    justify-items: center;
+    align-items: flex-start;
+}
+
+.flashcard {
+    width: 100%;
+    max-width: 300px;
+    height: 250px;
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out, box-shadow 0.3s ease;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+}
+
+.flashcard.flip {
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.front {
+    background-color: #ffffff;
+}
+
+.front:hover {
+    background-color: #f4f4f4;
+}
+
+.back {
+    background-color: #f9f9f9;
+    transform: rotateY(180deg);
+}
+
+h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #2c3e50;
+    font-weight: 600;
+    text-align: center;
+    width: 80%;
+}
+
+p {
+    font-size: 16px;
+    color: #34495e;
+    text-align: center;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+footer {
+    position: fixed;
+    bottom: 10px;
+    font-size: 10px;
+    color: #7f8c8d;
+    text-align: center;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .flashcards-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .flashcard {
+        height: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    .flashcards-container {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+    }
+
+    .flashcard {
+        height: 200px;
+    }
+}
